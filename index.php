@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 include "valida_cpf_cnpj/class/class-valida-cpf-cnpj.php";
 
 if(isset($_POST['enviarcpfoucnpj'])){
