@@ -2,10 +2,11 @@
 include "valida_cpf_cnpj/class/class-valida-cpf-cnpj.php";
 
 if(isset($_POST['enviarcpfoucnpj'])){
-  $cpforcnpj = filter_input(INPUT_POST, 'cpfoucnpj');
+  //$cpforcnpj = filter_input(INPUT_POST, 'cpfoucnpj');
+  $cpforcnpj = $_POST['cpfoucnpj'];
 
   $err = array();
-  if(isset($cpforcnpj)){ $err[] = "Campo vazio, mano!"; }else{
+  if(empty($cpforcnpj)){ $err[] = "Campo vazio, mano!"; }else{
     // Cria um objeto sobre a classe
     $cpf_cnpj = new ValidaCPFCNPJ($cpforcnpj);
 
@@ -35,7 +36,7 @@ if(isset($_POST['enviarcpfoucnpj'])){
   }
 
   if(!$err){
-
+	echo "Tudo certo!";
   }else{
     echo '<script>alert("';
     foreach($err as $value){
